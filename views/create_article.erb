@@ -1,0 +1,39 @@
+<% if @error%>
+<h4>Error: <%= @error %></h4>
+<% end %>
+
+<% unless @current_article %>
+
+<div class="card">
+    <div class="card-content">
+        <form action="/article/new" method="post">
+            <label for="titleInput">New Article:</label>
+            <h3>Title</h3><input type="text" id="titleInput" name="title" required>
+            <h3>URL</h3><input type="text" id="urlInput" name="url" required>
+            <h3>Description</h3><input type="text" id="descriptionInput" name="description" required>
+            <div class = "center">
+                <button type = "submit" id="newArticleCreate" class="waves-effect waves-light btn-small">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<% end %>
+
+
+<input type="hidden" name="_method" value="PUT">
+
+<% if @current_article %>
+<div class="card">
+    <div class="card-content">
+        <form action="/article/<%@current_id%>/edit/" method="post">
+            <label for="titleInput">Edit Article:</label>
+            <h3>Title</h3><input type = "text" value = "<%= @current_article[0]%>" id="titleInput" name="title" required>
+            <h3>URL</h3><input type = "url" id="urlInput" value = "<%= @current_article[1]%>" name="url" required>
+            <h3>Description</h3><input type = "text" id="descriptionInput" value = "<%= @current_article[2]%>" name="description" required>
+            <div class = "center">
+                <button type = "submit" id="newArticleCreate" class="waves-effect waves-light btn-small">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<% end %>

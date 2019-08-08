@@ -1,0 +1,26 @@
+<% @articles.each_slice(3) do |three_articles| %>
+    <div class="row">
+        <% three_articles.each do |article| %>
+        <div class="col s12 m4">
+            <div class="card teal lighten-2 small ">
+                <div class="card-content white-text">
+                    <span class="card-title">
+                        <p>Title:</p><%= article.title %>
+                    </span>
+                    <p>Url:</p> <a href="<%= article.url%>"><%= article.url%></a>
+                    <p>Description:</p>
+                    <p><%= article.description %></p>
+                    <br>
+                </div>
+                <div class="card-action">
+                    <div class="center">
+                        <a href="article/<%= article.id %>" class="waves-effect blue waves-light btn-small red lighten-1">Show</a>
+                        <a href="article/<%= article.id %>/edit" class="waves-effect orange waves-light btn-small red lighten-1">Edit</a>
+                        <a href="article/<%= article.id %>/delete" class="waves-effect red waves-light btn-small red lighten-1">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+<% end %>
