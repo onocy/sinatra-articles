@@ -3,7 +3,6 @@
 <% end %>
 
 <% unless @current_article %>
-
 <div class="card">
     <div class="card-content">
         <form action="/article/new" method="post">
@@ -18,9 +17,6 @@
     </div>
 </div>
 <% end %>
-
-
-<input type="hidden" name="_method" value="PUT">
 
 <% if @current_article %>
 <div class="card">
